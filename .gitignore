@@ -1,0 +1,21 @@
+###> symfony/framework-bundle ###
+/.env.local
+/.env.local.php
+/.env.*.local
+/public/bundles/
+/var/
+/vendor/
+/.web-server-pid
+/phpunit.xml
+.phpunit.result.cache
+/config/jwt/
+/.env.test
+/.data_dev/
+/.data_test/
+/vendor/
+/.idea
+.DS_Store
+/phpunit.phar
+.env
+/var/
+.phpunit

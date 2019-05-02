@@ -1,0 +1,230 @@
+{
+	"info": {
+		"_postman_id": "cca01d2f-d37f-4d60-a800-91546e388df2",
+		"name": "CommercialPeopleTest",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Create team",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\": \"test team\",\n\t\"strip\": \"trtsd\"\n}"
+				},
+				"url": {
+					"raw": "http://team-api.local/api/v1/league/1/team/create",
+					"protocol": "http",
+					"host": [
+						"team-api",
+						"local"
+					],
+					"path": [
+						"api",
+						"v1",
+						"league",
+						"1",
+						"team",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create league",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\": \"testLeague2\"\n}"
+				},
+				"url": {
+					"raw": "team-api.local/api/v1/league/create",
+					"host": [
+						"team-api",
+						"local"
+					],
+					"path": [
+						"api",
+						"v1",
+						"league",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetTeamList",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://team-api.local/api/v1/league/1/teams",
+					"protocol": "http",
+					"host": [
+						"team-api",
+						"local"
+					],
+					"path": [
+						"api",
+						"v1",
+						"league",
+						"1",
+						"teams"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update team",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\": \"edited\",\n\t\"strip\": \"edited\",\n\t\"leagueId\": 2\n}"
+				},
+				"url": {
+					"raw": "http://team-api.local/api/v1/league/1/team/5/update",
+					"protocol": "http",
+					"host": [
+						"team-api",
+						"local"
+					],
+					"path": [
+						"api",
+						"v1",
+						"league",
+						"1",
+						"team",
+						"5",
+						"update"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"username\": \"natalia\",\n\t\"password\": \"123123\"\n}"
+				},
+				"url": {
+					"raw": "http://team-api.local/api/v1/login",
+					"protocol": "http",
+					"host": [
+						"team-api",
+						"local"
+					],
+					"path": [
+						"api",
+						"v1",
+						"login"
+					]
+				},
+				"description": "Login user"
+			},
+			"response": []
+		},
+		{
+			"name": "Delete League",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://team-api.local/league/1/delete",
+					"protocol": "http",
+					"host": [
+						"team-api",
+						"local"
+					],
+					"path": [
+						"league",
+						"1",
+						"delete"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Register",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"username\": \"natalia\",\n\t\"password\": \"123123\"\n}"
+				},
+				"url": {
+					"raw": "http://team-api.local/api/v1/register",
+					"protocol": "http",
+					"host": [
+						"team-api",
+						"local"
+					],
+					"path": [
+						"api",
+						"v1",
+						"register"
+					]
+				},
+				"description": "Registration.\nToken will returned."
+			},
+			"response": []
+		}
+	]
+}

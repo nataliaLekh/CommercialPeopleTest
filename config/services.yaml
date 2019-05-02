@@ -1,0 +1,42 @@
+parameters:
+    environment: '%env(APP_ENV)%'
+    jwt_algorithm: 'RS256'
+    jwt_private_key: '%kernel.project_dir%/config/jwt/rsa_256'
+    jwt_public_key: '%kernel.project_dir%/config/jwt/rsa_256.pub'
+
+    jwt_test_key: '%env(JWT_TEST_KEY)%'
+    password_test: '%env(PASSWORD_TEST)%'
+
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+
+    App\:
+        resource: '../src/*'
+        exclude: '../src/{Entity,Repository/BaseRepository.php,Kernel.php}'
+
+    # controllers are imported separately to make sure services can be injected
+    # as action arguments even if you don't extend any base controller class
+    App\Controller\v1_0\:
+        resource: '../src/Controller/v1_0/*'
+        tags: ['controller.service_arguments']
+
+    # add more service definitions when explicit configuration is needed
+    # please note that last definitions always *replace* previous ones
+
+    App\EventListener\ExceptionListener:
+        tags:
+            - { name: kernel.event_listener, event: kernel.exception, method: onKernelException, priority: 255 }
+        arguments:
+            - '%environment%'
+
+    App\Util\JwtUtil:
+        arguments:
+            $jwtAlgorithm: '%jwt_algorithm%'
+            $jwtPrivateKey: '%jwt_private_key%'
+            $jwtPublicKey: '%jwt_public_key%'
+
+    App\Tests\DataFixtures\:
+        resource: '../tests/DataFixtures/*'
+        tags: ['doctrine.fixture.orm']
